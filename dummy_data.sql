@@ -13,7 +13,7 @@
 -- user_id 1–9:  Sellers only
 -- user_id 11–15: Customers only
 -- -------------------------------------------------------------
-INSERT INTO User (user_id, email, password_hash, first_name, last_name, phone, created_at, last_login) VALUES
+INSERT INTO `User` (user_id, email, password_hash, first_name, last_name, phone, created_at, last_login) VALUES
 (1,  'alice.martin@email.com',  'hashed_pw_1',  'Alice',  'Martin',  '206-555-0101', '2023-01-15 09:00:00', '2026-04-10 14:22:00'),
 (2,  'bob.nguyen@email.com',    'hashed_pw_2',  'Bob',    'Nguyen',  '206-555-0102', '2023-02-10 10:30:00', '2026-03-18 09:45:00'),
 (3,  'carol.smith@email.com',   'hashed_pw_3',  'Carol',  'Smith',   '425-555-0103', '2023-03-05 11:00:00', '2026-05-01 16:00:00'),
@@ -145,7 +145,7 @@ INSERT INTO Inventory (product_id, quantity_in_stock, restock_threshold, last_up
 -- Customers 12 and 13 have no transactions after early 2024
 -- making them genuinely inactive for the dashboard filter
 -- -------------------------------------------------------------
-INSERT INTO Transaction (transaction_id, customer_id, transaction_date, status, total_amount, shipping_address) VALUES
+INSERT INTO `Transaction` (transaction_id, customer_id, transaction_date, status, total_amount, shipping_address) VALUES
 (1,  11, '2024-01-12', 'completed', 79.98,  '101 Pine St Seattle WA 98101'),
 (2,  12, '2024-02-18', 'completed', 44.99,  '202 Oak Ave Bellevue WA 98004'),
 (3,  13, '2024-03-25', 'completed', 174.98, '303 Maple Rd Tacoma WA 98401'),
@@ -157,8 +157,6 @@ INSERT INTO Transaction (transaction_id, customer_id, transaction_date, status, 
 (9,  14, '2024-09-12', 'completed', 124.98, '404 Cedar Ln Redmond WA 98052'),
 (10, 15, '2024-10-20', 'completed', 70.97,  '505 Birch Blvd Kirkland WA 98033'),
 (11, 11, '2025-01-15', 'completed', 119.99, '101 Pine St Seattle WA 98101'),
-(12, 12, '2025-02-09', 'completed', 57.98,  '202 Oak Ave Bellevue WA 98004'),
-(13, 13, '2025-04-16', 'completed', 34.99,  '303 Maple Rd Tacoma WA 98401'),
 (14, 14, '2025-06-23', 'completed', 94.98,  '404 Cedar Ln Redmond WA 98052'),
 (15, 15, '2025-08-01', 'completed', 139.98, '505 Birch Blvd Kirkland WA 98033'),
 (16, 11, '2025-10-08', 'completed', 39.99,  '101 Pine St Seattle WA 98101'),
@@ -204,11 +202,6 @@ INSERT INTO TransactionItem (transaction_id, product_id, quantity, unit_price) V
 (10, 23, 1, 17.99),
 -- Tx 11 (Liam 2025-01): Puffer Jacket
 (11, 13, 1, 119.99),
--- Tx 12 (Mia 2025-02): Clean Code + Atomic Habits
-(12, 20, 1, 39.99),
-(12, 23, 1, 17.99),
--- Tx 13 (Noah 2025-04): Portable Water Filter
-(13, 19, 1, 34.99),
 -- Tx 14 (Olivia 2025-06): Gaming Mouse + USB-C Hub
 (14, 3,  1, 59.99),
 (14, 2,  1, 34.99),
